@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "charan-arxiv-research-agent"
+version = "0.1.0"
+description = "Bounded, source-linked arXiv research search tool for agent workflows"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.entry-points."deerflow.extensions"]
+arxiv_research = "arxiv_research_agent.deerflow_plugin:install"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/arxiv_research_agent"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
